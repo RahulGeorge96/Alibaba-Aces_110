@@ -1,0 +1,49 @@
+*{
+    font-family: "Roboto", sans-serif;
+  }
+  #header{
+    background: rgb(181, 234, 239);
+  background: linear-gradient(90deg, rgb(234, 244, 249) 20%, rgba(194, 232, 242, 0.694) 100%);
+  padding: 10px 40px;
+  }
+  .logo{
+    width: 95px;
+    height: 35px;
+  }
+  .Delivery-time>span:nth-child(1){
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .Delivery-time>span:nth-child(2){
+    font-size: 20px;
+    font-weight: 700;
+    color: #871bbe;
+  }
+  .search-button{
+    border: 1px solid black;
+    padding: 12px 16px;
+    width: 40vw;
+    overflow: hidden;
+    background-color: 
+    white;
+    border-radius: 10px;
+  }
+  .search-button>img{
+    width: 32px;
+  }
+  .search-button>input{
+    border: none;
+  }
+  #profile-icon>a>img{
+    width: 30px;
+    text-align: center;
+    margin-left: 8px;
+  }
+  #cart-icon>a>img{
+    width: 30px;
+    text-align: center;
+  }
+  #cart-icon{
+    margin-left: 20px;
+    text-align: center;
+  }
