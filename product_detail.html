@@ -1,0 +1,159 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+        body{
+            font-family: "Roboto Condensed", sans-serif;
+        }
+       #productdetailcontainer{
+        display:flex;
+        justify-content: space-evenly;
+       } 
+
+       #AddtoCartButton{
+        background-color: #ff3269;
+        color:white;
+        border-radius: 5px;
+        border: none;
+        height:50px;
+        width:90px;
+
+       }
+
+        #product-details-1{
+            width:800px;
+        }
+
+       #product-details-1>li{
+     color:#b7b3ba  ;
+     font-size: 19px;
+       }
+        .line {
+    width: 100%;
+    height: 1px;
+    background-color: #d7d4d9;
+    margin-top:20px;
+  }
+  #proddetapp{
+   margin-left: 20px;;
+  }
+  .proddet{
+    display:flex;
+    gap:20px;
+  }
+
+   .proddetimg{
+    width:600px;
+    height:600px;
+  } 
+    </style>
+</head>
+<body>
+
+    <div id="productdetailcontainer">
+         <div id="product-details-1"></div>
+         <div id="product-details-2"></div>
+    </div>
+   <script>
+  
+    function addToCart(product) {
+    
+        let cart=JSON.parse(localStorage.getItem('cart')) || [];
+     
+        cart.push(product);
+      
+        localStorage.setItem('cart',JSON.stringify(cart));
+       
+        console.log('Product added to cart:', product);
+    }
+
+    async function fetchProductDetails(productId) {
+        try {
+            const response = await fetch(`https://mock-server-api-wh0v.onrender.com/products/${productId}`);
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Error fetching product details:', error);
+            throw error;
+        }
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+    if (productId) {
+        fetchProductDetails(productId)
+            .then(product => {
+
+                const productDetailsDiv1 = document.getElementById('product-details-1');
+                const productDetailsDiv2 = document.getElementById('product-details-2');
+                productDetailsDiv1.innerHTML = `
+                    <img class="proddetimg" src=${product.url} alt=${product.productname}/>
+                    <h3>About Product</h3>
+                    <li>Description : ${product.description}</li>
+                    <li>Country Of Origin : ${product.country}</li>
+                    <li>Shelf Life : ${product.shelflife}</li>
+                    ${product.manufacturername ? `<li>Manufacturer Name : ${product.manufacturername}</li>` : ''}
+                    ${product.manufactureraddress ? `<li>Manufacturer Address : ${product.manufactureraddress}</li>` : ''}
+                `;
+
+                productDetailsDiv2.innerHTML = `
+                    <h2>${product.productname}</h2>
+                    <p>${product.quantity}</p>
+                    <h1>₹${product.costprice}</h1>
+                    <button id="AddtoCartButton">Add</button>
+                    <div class="line"></div>
+                    <h2>How it Works</h2> 
+                    <div id="proddetapp">
+                       <div class="proddet">
+                        <div><img src="https://cdn.zeptonow.com/web-static-assets-prod/artifacts/10.13.1/images/pdp/place-order.svg" /></div>
+                        <div>
+                            <h3>Open the app</h3>
+                            <p>Choose from over 7000 products across groceries, fresh fruits & veggies, meat, pet care, beauty items & more</p>
+                        </div>
+                       </div>
+
+                      <div class="proddet">
+                        <div><img src="https://cdn.zeptonow.com/web-static-assets-prod/artifacts/10.13.1/images/pdp/do-not-blink.svg" /></div>
+                        <div>
+                            <h3>Place an order</h3>
+                            <p>Add your favourite items to the cart & avail the best offers</p>
+                        </div>
+                       </div>
+                       
+                    <div class="proddet">
+                        <div><img src="https://cdn.zeptonow.com/web-static-assets-prod/artifacts/10.13.1/images/pdp/enjoy.svg" /></div>
+                        <div>
+                            <h3>Get free delivery</h3>
+                            <p>Experience lighting-fast speed & get all your items delivered in 10 minutes</p>
+                        </div>
+                       </div>
+
+                    </div>
+                `;
+
+                // Add event listener to the "Add to Cart" button
+                const addToCartButton = document.getElementById('AddtoCartButton');
+                addToCartButton.addEventListener('click', () => {
+                    addToCart(product);
+                });
+            })
+            .catch(error => {
+                console.error('Error displaying product details:', error);
+            });
+    } else {
+        console.error('Product ID not found in URL parameters.');
+    }
+</script>
+   
+</body>
+</html>
+
+
+ 
