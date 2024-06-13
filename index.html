@@ -11,20 +11,32 @@
         </style>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="search.js"></script>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <!-- <script src="search.js"></script> -->
 </head>
 <body>
     <div id="header"></div>
-    <div id="main-section">
-        <div id="top-banner">
+    <div id="main-section" class="container">
+        <!-- top-banner section -->
+        <div id="top-banner" class="container">
             <img src="/assets/paan-corner-banner.webp" alt="">
         </div>
-
+        <!-- Produxts for you section -->
+         <h1>Products For You</h1>
+        <div id="productsForYou" class="d-flex"></div>
+        <!-- offers carousel section -->
         <div id="offers">
-
         </div>
+        <!-- Explore by categories section -->
+         <h1>Explore by Categories</h1>
+         <div id="exploreCategories"></div>
+         <!--All Products with Infinite scrolling -->
+         <div id="allProducts">
+         </div>
     </div>
 </body>
     <script src="headerDisplay.js"></script>
-    
+    <script src="allProducts.js"></script>
+    <script src="productforyou.js"></script>
+    <script src="ExploreCategories.js"></script>
 </html>

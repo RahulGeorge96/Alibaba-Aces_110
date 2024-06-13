@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('placeholderLoaded', function() {
     const searchInput = document.getElementById('search-input');
     const placeholders = [
         "Search for Milk",
@@ -19,5 +19,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 50);
     }
 
-    setInterval(changePlaceholder, 2500); 
+    setInterval(changePlaceholder, 4000); 
 });
