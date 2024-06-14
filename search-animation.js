@@ -1,4 +1,4 @@
-document.addEventListener('placeholderLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('search-input');
     const placeholders = [
         "Search for Milk",
@@ -19,5 +19,19 @@ document.addEventListener('placeholderLoaded', function() {
         }, 50);
     }
 
-    setInterval(changePlaceholder, 4000); 
+    setInterval(changePlaceholder, 3000); 
+    // function startPlaceholderAnimation() {
+    //     placeholderInterval = setInterval(changePlaceholder, 3000);
+    // }
+
+    // function stopPlaceholderAnimation() {
+    //     clearInterval(placeholderInterval);
+    // }
+
+    // searchInput.addEventListener('focus', stopPlaceholderAnimation);
+    // searchInput.addEventListener('blur', startPlaceholderAnimation);
+
+    // startPlaceholderAnimation();
 });
+
+

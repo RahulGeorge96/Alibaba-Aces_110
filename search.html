@@ -8,15 +8,13 @@
     <link rel="stylesheet" href="style.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
         </style>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div id="header" class="fixed-top opacity-100">
+    <div id="header">
         <div class="navbar d-flex justify-content-around">
             <div class="Zepto-Home">
                 <a href="index.html"><img class="logo" src="https://cdn.zeptonow.com/web-static-assets-prod/artifacts/10.13.1/images/header/primary-logo.svg" alt="logo-error"></a>
@@ -51,40 +49,14 @@
         </div>
         
     </div>
-    <div id="main-section">
-        <!-- top-banner section -->
+    <div id="Search-Section" >
         <div id="top-banner">
             <img src="/assets/paan-corner-banner.webp" alt="">
         </div>
-        <!-- Produxts for you section -->
-         <div class="PFY-title">
-            <div><p>Products For You</p></div>
-            <div><button>See All </button>
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="red"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
-            </div>
-        </div>
         <div id="productsForYou" class="d-flex"></div>
-        <!-- offers carousel section -->
-        <div id="offers">
-        </div>
-        <!-- Explore by categories section -->
-         <div class="categories-title">
-            <div><p>Explore by Categories</p></div>
-            <div>
-                <button>See All</button>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="red"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
-            </div>
-        </div>
-         
-         <div id="exploreCategories"></div>
-         <!--All Products with Infinite scrolling -->
-         <div id="allProducts">
-         </div>
+        <div id="PopularItems" class="d-flex"></div>
     </div>
 </body>
-    <!-- <script src="headerDisplay.js"></script> -->
-    <script src="allProducts.js"></script>
+    <!-- <script src="search.js"></script> -->
     <script src="productforyou.js"></script>
-    <script src="ExploreCategories.js"></script>
-    <script src="search-animation.js"></script>
 </html>
