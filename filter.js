@@ -75,6 +75,7 @@ function filterProducts(selectedCategory, selectedSubcategory) {
             productElement.innerHTML = `
                 <img src="${product.url}" alt="${product.productname}">
                 <h2>${product.productname}</h2>
+                <p>Quantity: ${product.quantity}</p>
                 <p class="price">Price: ₹${product.costprice}</p>
             `;
             productList.appendChild(productElement);
