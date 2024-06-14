@@ -1,23 +1,18 @@
-document.addEventListener('placeholderLoaded', function() {
-    const searchInput = document.getElementById('search-input');
-    const placeholders = [
-        "Search for Milk",
-        "Search for bread",
-        "Search for Chocolate",
-        "Search for Fruits",
-        "Search for Vegetables",
-        "Search for Products"
-    ];
-    let placeholderIndex = 0;
+const placeholders = [
+    "Search for Milk",
+    "Search for bread",
+    "Search for Chocolate",
+    "Search for Fruits",
+    "Search for Vegetables",
+    "Search for Products"
+];
 
-    function changePlaceholder() {
-        searchInput.classList.remove('fade');
-        setTimeout(() => {
-            searchInput.setAttribute('placeholder', placeholders[placeholderIndex]);
-            searchInput.classList.add('fade');
-            placeholderIndex = (placeholderIndex + 1) % placeholders.length;
-        }, 50);
-    }
+let currentIndex = 0;
+const searchInput = document.getElementById('search-input');
 
-    setInterval(changePlaceholder, 4000); 
-});
+function changePlaceholder() {
+    searchInput.setAttribute('placeholder', placeholders[currentIndex]);
+    currentIndex = (currentIndex + 1) % placeholders.length;
+}
+
+setInterval(changePlaceholder, 2000); // Change placeholder every 2 seconds
