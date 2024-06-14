@@ -2,9 +2,9 @@
     font-family: "Roboto", sans-serif;
   }
   #header{
-    background: rgb(181, 234, 239);
-  background: linear-gradient(90deg, rgb(234, 244, 249) 20%, rgba(194, 232, 242, 0.694) 100%);
+  background: linear-gradient(90deg, rgb(62, 184, 245) 20%, rgba(14, 163, 200, 0.694) 100%);
   padding: 10px 40px;
+  
   }
   .logo{
     width: 95px;
@@ -55,32 +55,48 @@
   
 
   @keyframes fadeInDown {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    25% {
-        opacity: 1;
-        transform: translateY(-10px);
-    }
-    50% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    75% {
-        opacity: 1;
-        transform: translateY(10px);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
+   
+      0%, 100% {
+          opacity: -1;
+          transform: translateY(-10px);
+      }
+
+      20%, 80% {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  
 }
 
 #search-input.fade {
-    animation: fadeInDown 2.5s linear infinite;
+    animation: fadeInDown 4s ease-in-out;
+}
+.categories-title ,.PFY-title{
+  /* border: 1px solid black; */
+  width: 80%;
+  font-size: 22px;
+  margin-top: 25px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.categories-title>div>button ,.PFY-title>div>button{
+  border: 0px;
+  background-color: white;
+  color: red;
+  margin-right: -12px;
+  font-size: 18px;
 }
 
+.categories-title>div>button:hover ,.PFY-title>div>button:hover{
+  border: 0px;
+  background-color: white;
+  color: rgb(240, 55, 55);
+  border: 1px solid rgb(240, 55, 55); 
+  border-radius: 4px;
+  font-size: 18px;
+}
 /* All Products section  */
 #allProducts, #productsForYou{
   display: grid;
@@ -92,7 +108,14 @@
   /* text-align: center; */
   background-color: white;
 }
-#main-section{
+.product{
+  padding: 5px;
+}
+.product:hover{
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+#main-section,#Search-Section{
+  margin-top: 130px;
   width: 100%;
   border: 1px solid #ccc;
   display: flex;

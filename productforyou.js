@@ -14,7 +14,7 @@ function shuffleArray(array) {
 
 function displayProduct(products) {
     const productsContainer = document.getElementById('productsForYou');
-    productsContainer.innerHTML = ''; // Clear previous content if any
+    productsContainer.innerHTML = ''; 
 
     products.forEach(product => {
         const productDiv = document.createElement('div');
