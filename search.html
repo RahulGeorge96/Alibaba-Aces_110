@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div id="header">
+    <div id="header" class="fixed-top opacity-100">
         <div class="navbar d-flex justify-content-around">
             <div class="Zepto-Home">
                 <a href="index.html"><img class="logo" src="https://cdn.zeptonow.com/web-static-assets-prod/artifacts/10.13.1/images/header/primary-logo.svg" alt="logo-error"></a>
@@ -29,11 +29,13 @@
                 
             </div>
             <div>
-                <div class="search-button d-flex">
+                <div class="input-group search-button">
                     <img src="./assets/Search-Icon.svg" alt="">
-                    <input type="text" id="search-input" class="form-control" placeholder="search...">
+                    <input type="text" id="search-input" class="form-control" placeholder="Search for...">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" id="search-button" type="button">Search</button>
+                    </div>
                 </div>
-
             </div>
             
             <div class="profileAndCart d-flex justify-content-between">
@@ -49,14 +51,18 @@
         </div>
         
     </div>
-    <div id="Search-Section" >
+    <div id="Search-Section">
         <div id="top-banner">
             <img src="/assets/paan-corner-banner.webp" alt="">
         </div>
-        <div id="productsForYou" class="d-flex"></div>
-        <div id="PopularItems" class="d-flex"></div>
+        
+        <!-- <div id="PopularItems" class="d-flex"></div> -->
+        <div id="search-results">
+            <div id="productsForYou" class="d-flex"></div>
+        </div>
     </div>
 </body>
     <!-- <script src="search.js"></script> -->
     <script src="productforyou.js"></script>
+    <script src="search.js"></script>
 </html>

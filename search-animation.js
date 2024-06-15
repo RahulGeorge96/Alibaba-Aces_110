@@ -20,18 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     setInterval(changePlaceholder, 3000); 
-    // function startPlaceholderAnimation() {
-    //     placeholderInterval = setInterval(changePlaceholder, 3000);
-    // }
-
-    // function stopPlaceholderAnimation() {
-    //     clearInterval(placeholderInterval);
-    // }
-
-    // searchInput.addEventListener('focus', stopPlaceholderAnimation);
-    // searchInput.addEventListener('blur', startPlaceholderAnimation);
-
-    // startPlaceholderAnimation();
 });
 
 
