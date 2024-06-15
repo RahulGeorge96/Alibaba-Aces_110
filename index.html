@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1_f68FGk8f1_98lJqfIMb_fJl9PnDZIs&libraries=places"></script>
 </head>
 <body>
     <div id="header" class="fixed-top opacity-100">
@@ -23,15 +24,27 @@
             </div>
             <div class="location">
                 <div class="Delivery-time">
-                    <span>Delivery in </span> <span class="time">5 Mins</span>
+                    <span>Delivery in </span> <span class="time">10 Mins</span>
                 </div>
-                <div>
-                    <button><span class="address">Enter Your Location</span><span><img src="/assets/Down-arrow.svg" alt=""></span></button>
-                </div>
-                
+                <button id="openDialog">
+                    <span class="address">Enter Your Location</span>
+                    <span><img src="/assets/Down-arrow.svg" alt="Down Arrow"></span>
+                </button>
             </div>
-            <div>
-                <div class="search-button d-flex">
+        
+            <!-- Dialog Overlay -->
+            <div class="dialog-overlay" id="dialogOverlay">
+                <div class="dialog-box">
+                    <h3>Search Location</h3>
+                    <div class="location-input">
+                        <div class="d-flex intab"><img src="/assets/location_on_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt=""><input type="text" id="locationField" placeholder="Enter your location"></div>
+                        
+                        <button id="searchLocation">Search</button>
+                    </div>
+                </div>
+            </div>
+            <div onclick="window.location.href='search.html'">
+                <div class="search-button d-flex" focus="">
                     <img src="./assets/Search-Icon.svg" alt="">
                     <input type="text" id="search-input" class="form-control" placeholder="search...">
                 </div>
@@ -40,7 +53,7 @@
             
             <div class="profileAndCart d-flex justify-content-between">
                 <div id="profile-icon" >
-                    <a href="#"><img src="./assets/profile-icon.svg" alt=""></a>
+                    <a href="login.html"><img src="./assets/profile-icon.svg" alt=""></a>
                     <p>Profile</p>
                 </div>
                 <div id="cart-icon">
@@ -59,7 +72,8 @@
         <!-- Produxts for you section -->
          <div class="PFY-title">
             <div><p>Products For You</p></div>
-            <div><button>See All </button>
+            <div onclick="window.location.href='category.html'">
+                <button>See All </button>
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="red"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
             </div>
         </div>
@@ -70,7 +84,7 @@
         <!-- Explore by categories section -->
          <div class="categories-title">
             <div><p>Explore by Categories</p></div>
-            <div>
+            <div onclick="window.location.href='category.html'">
                 <button>See All</button>
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="red"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
             </div>
@@ -87,4 +101,5 @@
     <script src="productforyou.js"></script>
     <script src="ExploreCategories.js"></script>
     <script src="search-animation.js"></script>
+    <script src="location.js"></script>
 </html>
