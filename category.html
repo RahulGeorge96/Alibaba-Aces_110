@@ -4,25 +4,226 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Filter</title>
-    <link rel="stylesheet" href="/Alibaba-Aces_110/category.css">
+    <link rel="stylesheet" href="./category.css">
+    <link rel="icon" type="image/x-icon" href="/assets/title-logo.png">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1_f68FGk8f1_98lJqfIMb_fJl9PnDZIs&libraries=places"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Footer Style -->
+    <style>
+        footer {
+            background-color: #f7f7f7;
+            padding: 40px 0;
+            border-top: 1px solid #ddd;
+            margin-top: 50px;
+        }
+
+        footer>.container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .col-md-4 {
+            flex-basis: 30%;
+            margin: 20px 0;
+        }
+
+        .social-icons {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            justify-content: start;
+        }
+
+        .social-icons li {
+            margin-right: 15px;
+        }
+
+        .social-icons a {
+            color: #666;
+            transition: color 0.2s ease;
+            font-size: 20px;
+        }
+
+        .social-icons a:hover {
+            color: #333;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: #333;
+        }
+
+        .download-app {
+            margin-top: 20px;
+        }
+
+        .download-app a {
+            display: flex;
+            align-items: center;
+            color: #666;
+            text-decoration: none;
+            transition: color 0.2s ease;
+            margin-bottom: 10px;
+        }
+
+        .download-app a:hover {
+            color: #333;
+        }
+
+        .download-app i {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+        .row{
+            display: flex;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Product Filter</h1>
-        <div class="filter-options">
-            <label for="category">Category:</label>
-            <div id="category-grid" class="grid">
-                <!-- Category options will be dynamically added here -->
+    <div id="header" class="fixed-top opacity-100">
+        <div class="navbar d-flex justify-content-around">
+            <div class="Zepto-Home">
+                <a href="index.html"><img class="logo" src="https://cdn.zeptonow.com/web-static-assets-prod/artifacts/10.13.1/images/header/primary-logo.svg" alt="logo-error"></a>
             </div>
-            <div id="subcategory-container" class="hidden">
-                <label for="subcategory">Subcategory:</label>
-                <div id="subcategory-grid" class="grid">
-                    <!-- Subcategory options will be dynamically added here -->
+            <div class="location">
+                <div class="Delivery-time">
+                    <span>Delivery in </span> <span class="time">10 Mins</span>
+                </div>
+                <button id="openDialog">
+                    <span class="address">Enter Your Location</span>
+                    <span><img src="/assets/Down-arrow.svg" alt="Down Arrow"></span>
+                </button>
+            </div>
+        
+            <!-- Dialog Overlay -->
+            <div class="dialog-overlay" id="dialogOverlay">
+                <div class="dialog-box">
+                    <h3>Search Location</h3>
+                    <div class="location-input">
+                        <div class="d-flex intab"><img src="/assets/location_on_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt=""><input type="text" id="locationField" placeholder="Enter your location"></div>
+                        
+                        <button id="searchLocation">Search</button>
+                    </div>
+                </div>
+            </div>
+            <div onclick="window.location.href='search.html'">
+                <div class="search-button d-flex" focus="">
+                    <img src="./assets/Search-Icon.svg" alt="">
+                    <input type="text" id="search-input" class="form-control" placeholder="search...">
+                </div>
+
+            </div>
+            
+            <div class="profileAndCart d-flex justify-content-between">
+                <div id="profile-icon" >
+                    <a href="login.html"><img src="./assets/profile-icon.svg" alt=""></a>
+                    <p>Profile</p>
+                </div>
+                <div id="cart-icon">
+                    <a href="#"><img src="./assets/cart.svg" alt=""></a>
+                    <p>Cart</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="C-container">
+        <div class="sidebar">
+            <h5>Categories</h5>
+            <div class="filter-options">
+                <label for="category"></label>
+                <div id="category-grid" class="grid">
+                    <!-- Category options will be dynamically added here -->
+                </div>
+                <div id="subcategory-container" class="hidden">
+                    <h6>Subcategories</h6>
+                    <label for="subcategory"></label>
+                    <div id="subcategory-grid" class="grid">
+                        <!-- Subcategory options will be dynamically added here -->
+                    </div>
                 </div>
             </div>
         </div>
         <div id="product-list" class="product-list"></div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="logo-zepto.svg" alt="zepto">
+                    <ul class="social-icons">
+                        <li><a href="https://www.instagram.com/zepto.in/"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="https://twitter.com/zepto_in"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="https://www.facebook.com/zepto.in/"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://www.linkedin.com/company/zepto-tech-private-limited/"><i class="fab fa-linkedin-in"></i></a></li>
+                    </ul>
+                    <p>&copy; KiranaKart Technologies Private Limited</p>
+                </div>
+                <div class="col-md-4">
+                    <ul class="footer-links">
+                        <li><a href="https://zepto.com/">Home</a></li>
+                        <li><a href="https://zepto.com/delivery-areas">Delivery Areas</a></li>
+                        <li><a href="https://zepto.com/careers">Careers</a></li>
+                        <li><a href="https://zepto.com/customer-support">Customer Support</a></li>
+                        <li><a href="https://zepto.com/press">Press</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="footer-links">
+                        <li><a href="https://zepto.com/privacy-policy">Privacy Policy</a></li>
+                        <li><a href="https://zepto.com/terms-of-use">Terms of Use</a></li>
+                        <li><a href="https://zepto.com/responsible-disclosure-policy">Responsible Disclosure Policy</a></li>
+                        <li><a href="https://zepto.com/mojo-a-zepto-blog">Mojo - a Zepto Blog</a></li>
+                    </ul>
+               
+                    <div class="download-app">
+                        <a href="https://play.google.com/store/apps/details?id=com.kiranakart&hl=en_IN&gl=US" target="_blank"><i class="fab fa-google-play"></i> Get it on play store</a>
+                        <a href="https://apps.apple.com/in/app/zepto-grocery-delivery/id1539821008" target="_blank"><i class="fab fa-apple"></i> Get it on app store</a>
+                    </div>
+
+                    
+                </div>
+                
+                
+            </div>
+        </div>
+    </footer>
+
     <script src="./filter.js"></script>
+    <script src="./search-animation.js"></script>
+    <script src="./location.js"></script>
 </body>
 </html>
