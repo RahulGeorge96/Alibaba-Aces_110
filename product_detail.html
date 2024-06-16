@@ -20,6 +20,7 @@
        #productdetailcontainer{
         display:flex;
         justify-content: space-evenly;
+         margin-top:150px;
        } 
 
        #AddtoCartButton{
@@ -40,6 +41,15 @@
      color:#b7b3ba  ;
      font-size: 19px;
        }
+
+          #product-details-2{
+        margin-top:100px;
+       }
+
+       #proddet-1{
+        margin-top: 50px;
+       }
+
         .line {
     width: 100%;
     height: 1px;
@@ -47,7 +57,9 @@
     margin-top:20px;
   }
   #proddetapp{
-   margin-left: 20px;;
+   margin-left: 20px;
+   margin-top: 20px;
+
   }
   .proddet{
     display:flex;
@@ -185,6 +197,7 @@
                         <h1>₹${product.costprice}</h1>
                         <button id="AddtoCartButton">Add</button>
                         <div class="line"></div>
+                         <div id="proddet-1">
                         <h2>How it Works</h2>
                         <div id="proddetapp">
                             <div class="proddet">
@@ -209,6 +222,7 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                     `;
                     const addToCartButton = document.getElementById('AddtoCartButton');
                     addToCartButton.addEventListener('click', () => {
@@ -221,6 +235,12 @@
         } else {
             console.error('Product ID not found in URL parameters.');
         }
+
+                
+document.addEventListener("DOMContentLoaded", (event) => {
+  displayCartItems();
+});
+   
 </script>
    
 </body>

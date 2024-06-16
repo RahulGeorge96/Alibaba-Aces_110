@@ -64,6 +64,36 @@
         </div>
         
     </div>
+
+
+       <div class="cartsidebar" id="cartsidebar">
+    <div class="cartsidebar-header">
+        <button class="btn-close" id="closeSidebar">&times;</button>
+    </div>
+    <div class="cartsidebar-body">
+        <!-- Directly integrate cart items from cart.html -->
+         <h2 style="text-align: center;">Cart</h2>
+        <div class="cart-container" id="cart-items">
+            <!-- Cart items will be displayed dynamically here -->
+        </div>
+    </div>
+</div>
+
+
+ <div id="addressModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Enter your delivery address</h2>
+            <input id="autocomplete" type="text" placeholder="Enter your address">
+            <button id="saveAddress">Save Address</button>
+        </div>
+    </div>
+
+
+
+
+
+
     <div id="main-section">
         <!-- top-banner section -->
         <div id="top-banner">
@@ -131,4 +161,6 @@
     <script src="ExploreCategories.js"></script>
     <script src="search-animation.js"></script>
     <script src="location.js"></script>
+     <script src="sidebar.js"></script>
+    <script src="cart.js"></script>
 </html>
