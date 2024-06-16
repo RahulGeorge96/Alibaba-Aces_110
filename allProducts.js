@@ -4,7 +4,7 @@
         const subsequentLoad = 10;
         let isLoading = false;
         let allProductsLoaded = false;
-        let totalProducts = 80; // Assuming there are 80 products
+        let totalProducts = 120;
 
         async function fetchProducts(start, limit) {
             const response = await fetch(`https://mock-server-api-wh0v.onrender.com/products?_start=${start}&_limit=${limit}`);
@@ -69,7 +69,7 @@
 
         function initInfiniteScrolling() {
             window.addEventListener('scroll', () => {
-                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 500 && !isLoading && !allProductsLoaded) {
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 300 && !isLoading && !allProductsLoaded) {
                     loadMoreProducts(subsequentLoad);
                 }
             });
