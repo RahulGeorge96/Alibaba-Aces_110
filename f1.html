@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Zepto, India's Fastest Online Grocery Delivery App!</title>
+    <link rel="icon" type="image/x-icon" href="/assets/title-logo.png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        /* CSS styles for the header */
+        .fixed-top {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: #5b0171;
+            z-index: 1000;
+            padding: 10px 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px; /* Adjust height as needed */
+            width: auto; /* Maintain aspect ratio */
+        }
+
+        .Delivery-time {
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .address {
+            margin-right: 5px;
+        }
+
+        .search-button {
+            display: flex;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .search-button img {
+            height: 20px;
+            width: auto;
+            margin-right: 5px;
+        }
+
+        .profileAndCart {
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .profileAndCart div {
+            margin-left: 10px;
+            text-align: center;
+        }
+
+        /* Login popup styles */
+        .login-popup {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            overflow: auto;
+        }
+
+        .popup-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #5b0171;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .close {
+            color: #ccc;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .zepto-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #5b0171;
+            max-width: 400px;
+            margin: auto;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: white;
+            font-family: Arial, sans-serif;
+            margin-top: 20px; /* Adjust margin as needed */
+        }
+
+        .zepto-logo {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+
+        .zepto-tagline {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .zepto-input {
+            padding: 10px;
+            border: 1px solid #5b0171;
+            border-radius: 10px;
+            width: 100%;
+            font-size: 18px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        .zepto-button {
+            background-color: #bc4167;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+        }
+
+        .zepto-button:hover {
+            background-color: #bc4167;
+        }
+
+        .zepto-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .zepto-link {
+            text-decoration: none;
+            color: #5f1cc3;
+            font-size: 14px;
+        }
+
+        .zepto-link:hover {
+            color: #bc4167;
+        }
+
+        .zepto-terms {
+            font-size: 12px;
+            color: #666;
+            margin-top: 10px;
+            text-align: center;
+        }
+        </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1_f68FGk8f1_98lJqfIMb_fJl9PnDZIs&libraries=places"></script>
+</head>
+<body>
+    <div id="header" class="fixed-top opacity-100">
+        <div class="navbar d-flex justify-content-around">
+            <div class="Zepto-Home">
+                <a href="index.html"><img class="logo" src="https://cdn.zeptonow.com/web-static-assets-prod/artifacts/10.13.1/images/header/primary-logo.svg" alt="logo-error"></a>
+            </div>
+            <div class="location">
+                <div class="Delivery-time">
+                    <span>Delivery in </span> <span class="time">10 Mins</span>
+                </div>
+                <button id="openDialog">
+                    <span class="address">Enter Your Location</span>
+                    <span><img src="/assets/Down-arrow.svg" alt="Down Arrow"></span>
+                </button>
+            </div>
+        
+            <!-- Dialog Overlay -->
+            <div class="dialog-overlay" id="dialogOverlay">
+                <div class="dialog-box">
+                    <h3>Search Location</h3>
+                    <div class="location-input">
+                        <div class="d-flex intab"><img src="/assets/location_on_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt=""><input type="text" id="locationField" placeholder="Enter your location"></div>
+                        
+                        <button id="searchLocation">Search</button>
+                    </div>
+                </div>
+            </div>
+            <div onclick="window.location.href='search.html'">
+                <div class="search-button d-flex" focus="">
+                    <img src="./assets/Search-Icon.svg" alt="">
+                    <input type="text" id="search-input" class="form-control" placeholder="search...">
+                </div>
+
+            </div>
+            
+            <div class="profileAndCart d-flex justify-content-between">
+                <div id="profile-icon" >
+                    <a href="login.html"><img src="./assets/profile-icon.svg" alt=""></a>
+                    <p>Profile</p>
+                </div>
+                <div id="cart-icon">
+                    <a href="#"><img src="./assets/cart.svg" alt=""></a>
+                    <p>Cart</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <!-- Login Popup -->
+    <div class="login-popup" id="login-popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeLoginPopup()">&times;</span>
+            <div class="zepto-container">
+                <!-- Existing content for login -->
+                <div id="welcome-message" style="display: none;">
+                    <h3>Welcome to Food Mart</h3>
+                    <p>Your account details:</p>
+                    <p id="user-mobile"></p>
+                    <p id="user-password"></p>
+                </div>
+                <!-- Input fields for phone number and password -->
+                <input type="tel" id="phone-input" class="zepto-input" placeholder="+91 Enter Phone Number">
+                <input type="password" id="password-input" class="zepto-input" placeholder="Enter Password">
+                <!-- Continue button -->
+                <button class="zepto-button" onclick="login()">Continue</button>
+                <!-- Links to Google Play and App Store -->
+                <div class="zepto-links">
+                    <a href="#" class="zepto-link">GET IT ON Google Play</a>
+                    <a href="#" class="zepto-link">Download on the App Store</a>
+                </div>
+                <!-- Terms of Service and Privacy Policy -->
+                <div class="zepto-terms">By continuing, you agree to our Terms of Service & Privacy Policy</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="main-section">
+        <!-- top-banner section -->
+        <div id="top-banner">
+            <img src="/assets/paan-corner-banner.webp" alt="">
+        </div>
+        <!-- Produxts for you section -->
+         <div class="PFY-title">
+            <div><p>Products For You</p></div>
+            <div onclick="window.location.href='category.html'">
+                <button>See All </button>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="red"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
+            </div>
+        </div>
+        <div id="productsForYou" class="d-flex"></div>
+        <!-- offers carousel section -->
+        <div id="offers">
+        </div>
+        <!-- Explore by categories section -->
+         <div class="categories-title">
+            <div><p>Explore by Categories</p></div>
+            <div onclick="window.location.href='category.html'">
+                <button>See All</button>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="red"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
+            </div>
+        </div>
+         
+         <div id="exploreCategories"></div>
+         <!--All Products with Infinite scrolling -->
+         <div id="allProducts">
+         </div>
+    </div>
+</body>
+    <!-- <script src="headerDisplay.js"></script> -->
+    <script src="allProducts.js"></script>
+    <script src="productforyou.js"></script>
+    <script src="ExploreCategories.js"></script>
+    <script src="search-animation.js"></script>
+    <script src="location.js"></script>
+    <script>
+        // Function to open login popup
+        function openLoginPopup() {
+            document.getElementById('login-popup').style.display = 'block';
+        }
+    
+        // Function to close login popup
+        function closeLoginPopup() {
+            document.getElementById('login-popup').style.display = 'none';
+        }
+    
+        // Event listener for profile icon click
+        document.getElementById('profile-icon').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default behavior of link
+            openLoginPopup(); // Open the login popup
+        });
+        // Function to fetch user data and display welcome message
+
+
+// Function to open login popup
+function openLoginPopup() {
+    document.getElementById('login-popup').style.display = 'block';
+    fetchUserDataAndDisplayWelcome(); // Fetch user data and display welcome message
+}
+
+// Function to close login popup
+function closeLoginPopup() {
+    document.getElementById('login-popup').style.display = 'none';
+}
+
+// Event listener for profile icon click
+document.getElementById('profile-icon').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default behavior of link
+    openLoginPopup(); // Open the login popup
+});
+
+// Function to verify login
+function verifyLogin() {
+    const phone = document.getElementById('phone-input').value;
+    const password = document.getElementById('password-input').value;
+
+    // Fetch user data from API
+    fetch('https://mock-server-api-wh0v.onrender.com/user')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(users => {
+            // Find user with matching phone number and password
+            const user = users.find(u => u.mobilenumber === phone && u.password === password);
+
+            if (user) {
+                // Close the login popup
+                closeLoginPopup();
+                // Show welcome message
+                alert('Welcome to Zepto Mart');
+            } else {
+                // Show error message or handle invalid login
+                alert('Invalid credentials. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching user data:', error);
+            // Handle errors here, e.g., display an error message
+            alert('Error fetching user data. Please try again later.');
+        });
+}
+
+// Function to open login popup
+function openLoginPopup() {
+    document.getElementById('login-popup').style.display = 'block';
+}
+
+// Function to close login popup
+function closeLoginPopup() {
+    document.getElementById('login-popup').style.display = 'none';
+}
+
+// Event listener for Continue button click
+document.querySelector('.zepto-button').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default behavior of button
+    verifyLogin(); // Verify login details and show alert
+});
+
+    </script>
+</html>
