@@ -90,6 +90,35 @@
     </div>
 
 
+     <!-- Login Popup -->
+   
+  <div class="login-popup" id="login-popup">
+    <div class="popup-content">
+        <span class="close" onclick="closeLoginPopup()">&times;</span>
+        <div class="zepto-container">
+            <!-- Existing content for login -->
+            <div id="login-form">
+                <input type="tel" id="phone-input" class="zepto-input" placeholder="+91 Enter Phone Number">
+                <input type="password" id="password-input" class="zepto-input" placeholder="Enter Password">
+                <button class="zepto-button" onclick="login()">Continue</button>
+                <!-- Terms of Service and Privacy Policy -->
+                <div class="zepto-terms">By continuing, you agree to our Terms of Service & Privacy Policy</div>
+            </div>
+            <div id="logged-in-content" style="display: none;">
+                <h3>Zepto Food Mart</h3>
+                <button class="zepto-button" onclick="logout()">Logout</button>
+            </div>
+            <!-- Links to Google Play and App Store -->
+            <div class="zepto-links">
+                <a href="#" class="zepto-link">GET IT ON Google Play</a>
+                <a href="#" class="zepto-link">Download on the App Store</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 
 
@@ -163,4 +192,5 @@
     <script src="location.js"></script>
      <script src="sidebar.js"></script>
     <script src="cart.js"></script>
+    <script src="login.js"></script>
 </html>
