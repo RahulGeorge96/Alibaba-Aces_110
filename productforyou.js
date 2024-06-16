@@ -41,7 +41,7 @@ function displayProduct(products) {
             <div><img src="${product.url}" alt="${product.productname}" /></div>
             <div><h2>${product.productname}</h2></div>
             <div><p>${product.quantity}</p></div>
-            <div><p>₹${product.costprice}</p></div>
+            <div><p class="price">₹${product.costprice}</p></div>
             <div><button>Add To Cart</button></div>
         `;
 
