@@ -375,6 +375,22 @@
   cursor: pointer;
 }
 
+#cart-login-button{
+  background-color: 
+#ff3269;
+color:white;
+border:none;
+height:35px;
+width:100%;
+border-radius:5px;
+
+}
+
+#login-to-view-cart{
+  margin-top:150px;
+  text-align:center;
+}
+
 
 /*cart sidebar styles */
 
@@ -474,7 +490,7 @@
 }
 
 .remove-button {
-  background-color: #dc3545;
+  background-color:#ff3269;
   color: white;
   border: none;
   padding: 5px 8px;
@@ -485,7 +501,9 @@
 }
 
 .remove-button:hover {
-  background-color: #c82333;
+  background-color:white;
+  color:#ff3269;
+ border: 1px solid #ff3269;
 }
 
 
@@ -502,6 +520,22 @@
   font-weight: bold;
 }
 
+.address1{
+  background-color: #ff3269;
+  color:white;
+  border:none;
+  border-radius:5px;
+  height:50px;
+  margin-top:10px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.address1:hover{
+  background-color:white;
+  color:#ff3269;
+  border: 1px solid #ff3269;
+  transform: scale(1.05);
+}
 
 /*cart items styles */
 
@@ -513,7 +547,7 @@
     z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Full-width */
+    width: 80%; /* Full-width */
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black background */
@@ -527,7 +561,8 @@
     padding: 20px;
     border: 1px solid #888;
     width: 50%; /* Medium size */
-    max-width: 600px; /* Maximum width */
+    max-width: 450px; /* Maximum width */
+    height:175px;
     text-align: center; /* Center align text inside the modal */
     position: relative; /* Ensure position context for absolute positioning */
 }
@@ -549,6 +584,25 @@
     text-decoration: none;
     
 }
+
+
+ #saveAddress{
+  border:none;
+  background-color: #ff3269 ;
+  color:white;
+  border: none;
+  border-radius: 5px;
+  margin-top: 15px;
+  width:290px;
+   margin-left: 60px;
+   height:30px;
+ }
+
+ #autocomplete{
+  width:290px;
+    margin-left: 60px;
+      margin-top: 10px;
+ }
 
 
 /* location-cart */
