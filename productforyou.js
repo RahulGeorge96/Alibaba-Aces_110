@@ -29,6 +29,23 @@ function displayProduct(products) {
         productsContainer.appendChild(productDiv);
     });
 }
+function displayPopular(products) {
+    const popularContainer = document.getElementById('popularItems');
+    popularContainer.innerHTML = ''; 
+
+    products.forEach(product => {
+        const productDiv = document.createElement('div');
+        productDiv.className = 'product';
+        productDiv.innerHTML = `
+            <div><img src="${product.url}" alt="${product.productname}" /></div>
+            <div><h2>${product.productname}</h2></div>
+            <div><p>${product.quantity}</p></div>
+            <div><p>₹${product.costprice}</p></div>
+            <div><button>Add To Cart</button></div>
+        `;
+        popularContainer.appendChild(productDiv);
+    });
+}
 
 async function displayRandomProduct() {
     const products = await fetchProducts();
@@ -36,7 +53,12 @@ async function displayRandomProduct() {
     const selectedProducts = shuffledProducts.slice(0, 5);
     displayProduct(selectedProducts);
 }
-
+async function displayRandomPopular() {
+    const products = await fetchProducts();
+    const shuffledProducts = shuffleArray(products);
+    const selectedProducts = shuffledProducts.slice(0, 5);
+    displayPopular(selectedProducts);
+}
 // Call the function to display random products
 displayRandomProduct();
-         
+displayRandomPopular();
