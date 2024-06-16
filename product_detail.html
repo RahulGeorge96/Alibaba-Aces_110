@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1_f68FGk8f1_98lJqfIMb_fJl9PnDZIs&libraries=places"></script>
     <title>product detail</title>
     <style>
        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
@@ -42,7 +43,7 @@
         }
 
        #product-details-1>li{
-     color:#b7b7c6 ;
+     color:black;
      font-size: 19px;
      margin-left: 20px;;
        }
@@ -149,7 +150,7 @@
  <div id="addressModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Enter your delivery address</h2>
+            <h4>Enter your delivery address</h4>
             <input id="autocomplete" type="text" placeholder="Enter your address">
             <button id="saveAddress">Save Address</button>
         </div>

@@ -73,12 +73,14 @@
   </div>
   <div class="cartsidebar-body">
     <!-- Cart login prompt -->
-    <div id="login-to-view-cart" style="display: none;">
-      <h2>Please log in to view your cart</h2>
-      <button id="cart-login-button" onclick="openLoginPopup()">Log In</button>
+    <div id="login-to-view-cart" style="display: none; ">
+     <h3>Please Login</h3>
+      <p>Please login to access the cart</p>
+      <button id="cart-login-button" onclick="openLoginPopup()">Login</button>
     </div>
     <!-- Cart items will be displayed dynamically here -->
     <div class="cart-container" id="cart-items" style="display: none;">
+        <h1>Cart</h1>
       <!-- Cart items will be displayed dynamically here -->
     </div>
   </div>
@@ -89,7 +91,7 @@
  <div id="addressModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Enter your delivery address</h2>
+            <h4>Enter your delivery address</h4>
             <input id="autocomplete" type="text" placeholder="Enter your address">
             <button id="saveAddress">Save Address</button>
         </div>

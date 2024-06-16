@@ -41,11 +41,14 @@ function displayCartItems() {
       </div>
     `;
   } else {
+     cartContainer.innerHTML = `<h3 style="text-align:center; margin-bottom:20px">Cart</h3>`;
     cart.forEach((item, index) => {
       item.unitprice = item.unitprice || item.costprice / item.quantity;
       item.costprice = item.costprice || item.unitprice * item.quantity;
 
       totalAmount += item.costprice; // Add item costprice to total amount
+
+      
 
       const cartItemDiv = document.createElement("div");
       cartItemDiv.className = "cart-item";
@@ -95,7 +98,7 @@ function displayCartItems() {
       <div>
         <div id="openDialog1">
           <div>Enter your delivery address</div>
-          <button style="background-color: #ff3269; color:white;border:none; border-radius:5px;height:50px;margin-top:10px;" class="address1" onclick="openAddressModal()">Add Address To Proceed</button>
+          <button  class="address1" onclick="openAddressModal()">Add Address To Proceed</button>
         </div>
       </div>
     `;
