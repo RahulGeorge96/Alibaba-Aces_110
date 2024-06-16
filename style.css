@@ -2,8 +2,9 @@
     font-family: "Roboto", sans-serif;
   }
   #header{
-  background: linear-gradient(90deg, rgb(62, 184, 245) 20%, rgba(14, 163, 200, 0.694) 100%);
+  background: linear-gradient(180deg, rgb(29, 136, 189) 20%, rgba(14, 163, 200, 0.694) 100%);
   padding: 10px 40px;
+  
   
   }
   .logo{
@@ -104,6 +105,7 @@
   grid-template-columns: repeat(5, 1fr);
   gap: 16px;
   padding: 16px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   /* border: 1px solid #1b1919; */
   /* text-align: center; */
   background-color: white;
@@ -128,7 +130,18 @@
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 30px;
+  width: 80vw;
+  padding: 25px;
+  height: 100%;
+  margin-bottom: 50px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 
+}
+#exploreCategories>div{
+  padding: 8px;
+}
+#exploreCategories>div:hover{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 /* .category-card{
   width:200px;
