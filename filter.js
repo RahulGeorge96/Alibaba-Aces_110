@@ -75,8 +75,8 @@ function filterProducts(selectedCategory, selectedSubcategory) {
             productElement.innerHTML = `
                 <img src="${product.url}" alt="${product.productname}">
                 <h2>${product.productname}</h2>
-                <p>Quantity: ${product.quantity}</p>
-                <p class="price">Price: ₹${product.costprice}</p>
+                <p>${product.quantity}</p>
+                <p class="price">₹${product.costprice}</p>
                   <div><button >Add To Cart</button></div>
             `;
               const addToCartButton = productElement.querySelector("button");
@@ -85,7 +85,7 @@ function filterProducts(selectedCategory, selectedSubcategory) {
                 addToCart(product);
               });
 
-              productList.addEventListener("click", () => {
+              productElement.addEventListener("click", () => {
                 window.location.href = `product_detail.html?id=${product.id}`;
               });
             productList.appendChild(productElement);
