@@ -1,4 +1,4 @@
-let isLoggedIn = false; // Flag to keep track of login status
+let isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
 // Function to open login popup
 function openLoginPopup() {
@@ -30,7 +30,6 @@ function verifyLogin() {
   const phone = document.getElementById("phone-input").value;
   const password = document.getElementById("password-input").value;
 
-  // Fetch user data from API
   fetch("https://mock-server-api-wh0v.onrender.com/user")
     .then((response) => {
       if (!response.ok) {
@@ -39,23 +38,22 @@ function verifyLogin() {
       return response.json();
     })
     .then((users) => {
-      // Find user with matching phone number and password
       const user = users.find(
         (u) => u.mobilenumber === phone && u.password === password
       );
 
       if (user) {
         isLoggedIn = true; // Update login status
+        localStorage.setItem("isLoggedIn", "true");
         closeLoginPopup(); // Close the login popup
         alert("Welcome to Food Mart"); // Display welcome message
+        updateCartView(); // Update the cart view
       } else {
-        // Show error message or handle invalid login
         alert("Invalid credentials. Please try again.");
       }
     })
     .catch((error) => {
       console.error("Error fetching user data:", error);
-      // Handle errors here, e.g., display an error message
       alert("Error fetching user data. Please try again later.");
     });
 }
@@ -63,10 +61,11 @@ function verifyLogin() {
 // Function to logout
 function logout() {
   isLoggedIn = false; // Update login status
+  localStorage.setItem("isLoggedIn", "false");
   closeLoginPopup(); // Close the popup without showing the login form
-  // Clear input fields
   document.getElementById("phone-input").value = "";
   document.getElementById("password-input").value = "";
+  updateCartView(); // Update the cart view
 }
 
 // Event listener for Continue button click
@@ -76,3 +75,22 @@ document
     event.preventDefault(); // Prevent default behavior of button
     verifyLogin(); // Verify login details and show alert
   });
+
+function updateCartView() {
+  const loginToViewCart = document.getElementById("login-to-view-cart");
+  const cartItems = document.getElementById("cart-items");
+
+  if (isLoggedIn) {
+    loginToViewCart.style.display = "none";
+    cartItems.style.display = "block";
+    displayCartItems(); // Display cart items
+  } else {
+    loginToViewCart.style.display = "block";
+    cartItems.style.display = "none";
+  }
+}
+
+// Ensure cart items are displayed on page load if the user is logged in
+document.addEventListener("DOMContentLoaded", (event) => {
+  updateCartView();
+});

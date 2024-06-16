@@ -161,18 +161,24 @@
 
 
 
-        <div class="cartsidebar" id="cartsidebar">
-    <div class="cartsidebar-header">
-        <button class="btn-close" id="closeSidebar">&times;</button>
+      
+<div class="cartsidebar" id="cartsidebar">
+  <div class="cartsidebar-header">
+    <button class="btn-close" id="closeSidebar">&times;</button>
+  </div>
+  <div class="cartsidebar-body">
+    <!-- Cart login prompt -->
+    <div id="login-to-view-cart" style="display: none;">
+      <h2>Please log in to view your cart</h2>
+      <button id="cart-login-button" onclick="openLoginPopup()">Log In</button>
     </div>
-    <div class="cartsidebar-body">
-        <!-- Directly integrate cart items from cart.html -->
-         <h2 style="text-align: center;">Cart</h2>
-        <div class="cart-container" id="cart-items">
-            <!-- Cart items will be displayed dynamically here -->
-        </div>
+    <!-- Cart items will be displayed dynamically here -->
+    <div class="cart-container" id="cart-items" style="display: none;">
+      <!-- Cart items will be displayed dynamically here -->
     </div>
+  </div>
 </div>
+
 
 
  <div id="addressModal" class="modal">
@@ -185,7 +191,7 @@
     </div>
 
 
-      <!-- Login Popup -->
+     <!-- Login Popup -->
    
   <div class="login-popup" id="login-popup">
     <div class="popup-content">
@@ -211,7 +217,6 @@
         </div>
     </div>
 </div>
-
 
     <!-- Category Section -->
     <div class="C-container">
