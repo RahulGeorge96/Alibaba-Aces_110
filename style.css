@@ -468,6 +468,52 @@
 }
 
 
-
-
 /*cart items styles */
+
+/* location-cart */
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%; /* Full-width */
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black background */
+    padding-top: 60px;
+}
+
+/* Centering the modal content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* 10% from the top and centered horizontally */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Medium size */
+    max-width: 600px; /* Maximum width */
+    text-align: center; /* Center align text inside the modal */
+    position: relative; /* Ensure position context for absolute positioning */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px; /* Adjust top position */
+    left: 10px; /* Adjust left position */
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    
+}
+
+
+/* location-cart */
