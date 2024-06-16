@@ -43,8 +43,10 @@ function displayCartItems() {
     `;
   } else {
     cart.forEach((item, index) => {
-      totalAmount += item.costprice; 
+      item.unitprice = item.unitprice || item.costprice / item.quantity;
+      item.costprice = item.costprice || item.unitprice * item.quantity;
 
+      totalAmount += item.costprice; 
       const cartItemDiv = document.createElement("div");
       cartItemDiv.className = "cart-item";
       cartItemDiv.innerHTML = `
