@@ -5,6 +5,7 @@ function removeFromCart(index) {
   displayCartItems();
 }
 
+// Function to update the quantity of a cart item
 function updateQuantity(index, increment) {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const product = cart[index];
@@ -25,6 +26,7 @@ function updateQuantity(index, increment) {
   displayCartItems();
 }
 
+// Function to display cart items
 function displayCartItems() {
   const cartContainer = document.getElementById("cart-items");
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -67,40 +69,35 @@ function displayCartItems() {
     const totalAmountDiv = document.createElement("div");
     totalAmountDiv.className = "total-amount";
     totalAmountDiv.innerHTML = `
-    <h3>Total Amount: ₹${totalAmount}</h3>
-    <br/>
-    <div style="display:flex; gap:5px">
+      <h3>Total Amount: ₹${totalAmount}</h3>
+      <br/>
+      <div style="display:flex; gap:5px">
         <div> <img src="https://www.zeptonow.com/_next/image?url=https%3A%2F%2Fik.imagekit.io%2Fjupdt2k6txi%2Fapp%2Fimages%2Ftip_icon.png&w=640&q=75" /></div>
         <div>
-        <p style="font-weight:600">Delivery Partner Tip</p>
-        <p> This amount goes to your delivery partner</p>
+          <p style="font-weight:600">Delivery Partner Tip</p>
+          <p> This amount goes to your delivery partner</p>
         </div>
-    </div>
-
-     <div style="display:flex;gap:5px">
+      </div>
+      <div style="display:flex;gap:5px">
         <div> <img src="https://www.zeptonow.com/_next/image?url=https%3A%2F%2Fik.imagekit.io%2Fjupdt2k6txi%2Fapp%2Fimages%2Finstructions_icon.png&w=640&q=75" /></div>
         <div>
-        <p style="font-weight:600">Delivery Instructions</p>
-        <p>Delivery partner will be notified</p>
+          <p style="font-weight:600">Delivery Instructions</p>
+          <p>Delivery partner will be notified</p>
         </div>
-    </div>
-
-    <div style="display:flex;gap:5px">
+      </div>
+      <div style="display:flex;gap:5px">
         <div> <img src="https://www.zeptonow.com/_next/image?url=https%3A%2F%2Fik.imagekit.io%2Fjupdt2k6txi%2Fapp%2Fimages%2Fbill_icon.png&w=640&q=75" /></div>
         <div>
-        <p style="font-weight:600">To Pay ₹${totalAmount} </p>
-        <p> Incl all taxes  and charges</p>
+          <p style="font-weight:600">To Pay ₹${totalAmount} </p>
+          <p> Incl all taxes  and charges</p>
         </div>
-    </div>
-
-    <div>
-      <div id="openDialog1">
-                    <div >Enter your delivery address</div>
-                    <button  style="background-color: #ff3269; color:white;border:none; border-radius:5px;height:50px;margin-top:10px;" class="address1" onclick="openAddressModal()">Add Address To Proceed</button>
-                </div>
-    </div>
-
-    
+      </div>
+      <div>
+        <div id="openDialog1">
+          <div>Enter your delivery address</div>
+          <button style="background-color: #ff3269; color:white;border:none; border-radius:5px;height:50px;margin-top:10px;" class="address1" onclick="openAddressModal()">Add Address To Proceed</button>
+        </div>
+      </div>
     `;
     cartContainer.appendChild(totalAmountDiv);
   }
@@ -144,6 +141,14 @@ document.getElementById("saveAddress").onclick = function () {
   }
 };
 
+// Ensure cart items are displayed on page load if the user is logged in
 document.addEventListener("DOMContentLoaded", (event) => {
-  displayCartItems();
+  updateCartView();
 });
+
+
+
+
+
+
+
