@@ -736,3 +736,140 @@ border-radius:5px;
 
 
 /* login popup menu style */
+
+
+/*footer styles */
+
+
+  footer {
+        background-color: rgba(var(--color-base), var(--tw-bg-opacity));
+        padding: 40px 20px;
+        border-top: 1px solid #ddd;
+        text-align: left;
+        
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        
+        justify-content: space-evenly;
+      }
+
+      .col-md-4 {
+        flex-basis: 30%;
+        margin: 20px 0;
+        text-align: left; /* Adjusted alignment */
+        margin-left: 50px;
+      }
+
+      .col-md-5 {
+        flex-basis: 30%;
+        margin: 20px 0;
+        text-align: left; /* Adjusted alignment */
+        line-height: 2px;
+      }
+
+      /* Social icons styling */
+      .social-icons {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: start;
+      }
+
+      .social-icons li {
+        margin-right: 15px;
+      }
+
+      .social-icons a {
+        color: #666;
+        transition: color 0.2s ease;
+        font-size: 20px;
+        text-decoration: none; /* Added */
+      }
+
+      .social-icons a:hover {
+        color: #333;
+      }
+
+      /* Footer links styling */
+      .footer-links {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 20px; /* Adjusted margin */
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        color: #666;
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .footer-links a:hover {
+        color: #333;
+      }
+
+      /* Download app section styling */
+      .download-app {
+        margin-top: 20px;
+      }
+
+      .download-app a {
+        display: flex;
+        align-items: center;
+        color: #666;
+        text-decoration: none;
+        transition: color 0.2s ease;
+        margin-bottom: 10px;
+      }
+
+      .download-app a:hover {
+        color: #333;
+      }
+
+      .download-app i {
+        margin-right: 10px;
+        font-size: 24px;
+      }
+
+      /* Category section styling */
+      #container {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+        margin-top: 8px; /* Adjusted margin */
+      }
+
+      .category-column {
+        flex: 1;
+        text-align: center;
+        padding: 0 10px; /* Added padding */
+        text-align: left; /* Adjusted alignment */
+        padding-left: 127px;
+      }
+
+      .category-column ul {
+        padding: 0;
+        list-style-type: none; /* Remove bullets from ul elements */
+      }
+
+      .category-column li {
+        padding: 10px 0;
+        text-decoration: none;
+        font-size: 16px;
+        color: #333;
+      }
+
+       body {
+  /*       font-family: Arial, sans-serif; */
+        margin: 0;
+        padding: 0;
+      }
+
+/*footer styles */
