@@ -10,6 +10,7 @@ function fetchProducts() {
         .then(data => {
             products = data;
             populateCategories();
+            filterProducts('All', 'All'); // Show all products by default
         })
         .catch(error => console.error('Error fetching products:', error));
 }
@@ -67,7 +68,7 @@ function filterProducts(selectedCategory, selectedSubcategory) {
 
     products.forEach(product => {
         if (
-            product.category === selectedCategory &&
+            (selectedCategory === 'All' || product.category === selectedCategory) &&
             (selectedSubcategory === 'All' || product.subcategory === selectedSubcategory)
         ) {
             const productElement = document.createElement("div");
@@ -75,39 +76,36 @@ function filterProducts(selectedCategory, selectedSubcategory) {
             productElement.innerHTML = `
                 <img src="${product.url}" alt="${product.productname}">
                 <h2>${product.productname}</h2>
-                <p>${product.quantity}</p>
-                <p class="price">₹${product.costprice}</p>
-                  <div><button >Add To Cart</button></div>
+                <p>Quantity: ${product.quantity}</p>
+                <p class="price">Price: ₹${product.costprice}</p>
+                <div><button>Add To Cart</button></div>
             `;
-              const addToCartButton = productElement.querySelector("button");
-              addToCartButton.addEventListener("click", (event) => {
+            const addToCartButton = productElement.querySelector("button");
+            addToCartButton.addEventListener("click", (event) => {
                 event.stopPropagation();
                 addToCart(product);
-              });
+            });
 
-              productElement.addEventListener("click", () => {
+            productElement.addEventListener("click", () => {
                 window.location.href = `product_detail.html?id=${product.id}`;
-              });
+            });
             productList.appendChild(productElement);
         }
     });
 }
 
-
-
- function addToCart(product) {
-   const cart = JSON.parse(localStorage.getItem("cart")) || [];
-   const existingProduct = cart.find((item) => item.id === product.id);
-   if (existingProduct) {
-     existingProduct.quantity += 1;
-     existingProduct.costprice += product.costprice;
-   } else {
-     product.quantity = 1;
-     product.unitprice = product.costprice; // Save the unit price
-     cart.push(product);
-   }
-   localStorage.setItem("cart", JSON.stringify(cart));
-   displayCartItems();
-   console.log("Product added to cart:", product);
- }
-        
+function addToCart(product) {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existingProduct = cart.find((item) => item.id === product.id);
+    if (existingProduct) {
+        existingProduct.quantity += 1;
+        existingProduct.costprice += product.costprice;
+    } else {
+        product.quantity = 1;
+        product.unitprice = product.costprice;
+        cart.push(product);
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    displayCartItems();
+    console.log("Product added to cart:", product);
+}
