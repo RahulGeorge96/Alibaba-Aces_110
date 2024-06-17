@@ -33,11 +33,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function displayResults(results) {
+        const query = searchInput.value.trim();
+        searchResults.innerHTML = ''; 
+
+        const title = document.querySelector('.searchtitle');
+        title.textContent = `Search results for "${query}"`;
+        
         if (results.length === 0) {
             searchResults.innerHTML = '<p>No results found.</p>';
             return;
         }
-        searchResults.innerHTML = ''; // Clear previous results
         results.forEach(result => {
             const productDiv = document.createElement('div');
             productDiv.className = 'product';
