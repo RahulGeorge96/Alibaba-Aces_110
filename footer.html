@@ -73,6 +73,7 @@
 
         .download-app {
             margin-top: 20px;
+            padding-left: 90px;
         }
 
         .download-app a {
@@ -95,10 +96,74 @@
         .row{
             display: flex;
         }
+        body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    footer {
+      background-color: #f0f0f0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #container {
+      display: flex;
+      justify-content: space-around;
+      padding: 0;
+    }
+
+    .p1, .p2, .p3, .p4, .p5 {
+      flex: 1;
+      padding: 0;
+    }
+
+    .p1 ul, .p2 ul, .p3 ul, .p4 ul, .p5 ul {
+      padding: 0;
+      list-style-type: none; /* Remove bullets from ul elements */
+    }
+
+    .p1 li, .p2 li, .p3 li, .p4 li, .p5 li {
+      padding: 10px 0;
+      text-decoration: none;
+      font-size: 16px;
+      color: #333;
+    }
     </style>
 </head>
 <body>
     <footer>
+        <h3>Categories</h3>
+      <div id="container">
+        <div class="p1">
+          <ul>
+            <li>Dairy , Bread & Eggs</li>
+            <li>Chips</li>
+            <li>Atta,Rice,oil, Dals</li>
+            <li>Breakfast & Snacs</li>
+
+          </ul>
+        </div>
+        <div class="p2">
+          <ul>
+            <li>Fruits & Vegetables</li>
+            <li>ColdDrink & Juices</li>
+            <li>Sweet Cravings</li>
+            <li>Biscuits & Cookies</li>
+          </ul>
+        </div>
+        <div class="p3">
+          <ul>
+            <li>Masala & Dry Fruits</li>
+            <li>Frozen Food & Icecream</li>
+            <li>Tea ,Coffee & More</li>
+            <li>Package Food</li>
+          </ul>
+        </div>
+        
+        
+      </div>
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
