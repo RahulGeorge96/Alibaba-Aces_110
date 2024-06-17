@@ -23,21 +23,30 @@
         background-color: #f7f7f7;
         padding: 40px 20px;
         border-top: 1px solid #ddd;
-        text-align: center;
+        text-align: left;
+        
       }
 
       .container {
         max-width: 1200px;
         margin: 0 auto;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+        
+        justify-content: space-evenly;
       }
 
       .col-md-4 {
         flex-basis: 30%;
         margin: 20px 0;
         text-align: left; /* Adjusted alignment */
+        margin-left: 50px;
+      }
+
+      .col-md-5 {
+        flex-basis: 30%;
+        margin: 20px 0;
+        text-align: left; /* Adjusted alignment */
+        line-height: 2px;
       }
 
       /* Social icons styling */
@@ -112,7 +121,7 @@
         display: flex;
         justify-content: space-around;
         padding: 0;
-        margin-top: 40px; /* Adjusted margin */
+        margin-top: 8px; /* Adjusted margin */
       }
 
       .category-column {
@@ -129,8 +138,6 @@
       }
 
       .category-column li {
-        
-        
         padding: 10px 0;
         text-decoration: none;
         font-size: 16px;
@@ -140,10 +147,8 @@
   </head>
   <body>
     <footer>
-      <h3>Categories</h3>
+      <h3 style="padding-left: 126px;">Categories</h3>
       <div id="container">
-        
-        
         <div class="category-column">
           <ul>
             <li>Dairy , Bread & Eggs</li>
@@ -169,9 +174,11 @@
           </ul>
         </div>
       </div>
+
+<hr>
       <div class="container">
         <div class="col-md-4">
-          <img src="logo-zepto.svg" alt="zepto" />
+          <img src="https://cdn.zeptonow.com/web-static-assets-prod/artifacts/10.14.0/images/logo.svg" alt="zepto" />
           <ul class="social-icons">
             <li>
               <a href="https://www.instagram.com/zepto.in/"
@@ -227,22 +234,30 @@
               >
             </li>
           </ul>
+        </div>
+        <div class="col-md-4">
           <div class="download-app">
-            <a
-              href="https://play.google.com/store/apps/details?id=com.kiranakart&hl=en_IN&gl=US"
-              target="_blank"
-              ><i class="fab fa-google-play"></i> Get it on play store</a
-            >
-            <a
-              href="https://apps.apple.com/in/app/zepto-grocery-delivery/id1539821008"
-              target="_blank"
-              ><i class="fab fa-apple"></i> Get it on app store</a
-            >
+            <div style="border:  1px solid black; padding-top: 3px; padding-left: 5px;">
+              <a href="https://play.google.com/store/apps/details?id=com.kiranakart&hl=en_IN&gl=US" target="_blank"><i class="fab fa-google-play"      >
+              </i> Get it on play store</a>
+            </div>
+            <br>
+            <div style="border:  1px solid black; padding-top: 3px; padding-left: 5px;">
+              <a href="https://apps.apple.com/in/app/zepto-grocery-delivery/id1539821008" target="_blank"><i class="fab fa-apple"></i> Get it on app store</a>
+            </div>
+
+            
           </div>
         </div>
       </div>
 
-      <!-- Category section -->
+
+
+
+
+
+
+
       
     </footer>
   </body>
