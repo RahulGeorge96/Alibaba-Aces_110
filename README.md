@@ -68,6 +68,8 @@ Alibaba-Aces_110/
 
 **Categories page** <br>
 <img src="./assets/Category.png">
+<img src="./assets/subcategory.png">
+
 
 **Search page** <br>
 <img src="./assets/Search.png">
