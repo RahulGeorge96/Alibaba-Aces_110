@@ -67,7 +67,6 @@ Alibaba-Aces_110/
 <img src="./assets/Logout.png">
 
 **Categories page** <br>
-<img src="./assets/Category.png">
 <img src="./assets/subcategory.png">
 
 
