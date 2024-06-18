@@ -80,8 +80,8 @@ Alibaba-Aces_110/
 - Google Map Places API
 
 ## API Endpoints
-GET /api/products - retrieve all products <br>
-GET /api/user - access a user
+GET /api/products - To retrieve all products <br>
+GET /api/user - To access the user
 
 
 ## Technology Stack
